@@ -1,15 +1,3 @@
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!НЕОТНОСИТЕЛЬНЫЙ ПУТЬ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-# 1) почистить импорты
-# 2) оформить по pep8
-# 3) относительныее пути поправить
-# 4) функции времени в одно место - может быть погрешность
-# 5) У разных юзеров добавлять не 01, а 02, 03, 04, тд
-# 6) 141956 максимальное колв-во запросов примерно
-# 7) реализовать через классы
-# 8) имя пользователся можно парсить
-# 9) 
-# 10) добавить изменение SLEEP_TIME
-
 import vk_api
 import time 
 from time import time, localtime, sleep
@@ -45,7 +33,7 @@ def WRITE_DATA_ACTIVITY(N_USER):
     val = True # переменная цикла
     online_now = False # был ли человек онлайн к моменту прошлого запроса
 
-    file_name = making_file_name(N_USER,now) # делает имя в формате 27_06_22_Воронов.txt
+    file_name = making_file_name(N_USER,now) # делает имя в формате 27_06_22_USER1.txt
     try:
         f = open(file_name,'w+')
         start_offline = TIME_00_00_U
@@ -67,7 +55,7 @@ def WRITE_DATA_ACTIVITY(N_USER):
                     word = (start_offline - start_online) * '1' + '0'
                     online_now = False
                     f.write(word)
-            if int(time()) >= next_day_00_00: # DRY
+            if int(time()) >= next_day_00_00: 
                 # Когда будет запись в несколько файлов
                 # if online_now == True:
                 #     word = (next_day_00_00 - start_online) * '1' 
